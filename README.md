@@ -1,6 +1,6 @@
 # Tutorials
 
-CC-BY-SA
+Autor: Maxim Gansert, 2019, Mindscan
 
 This will become a series of single (one-shot) tutorials. I really miss writing down ideas or other stuff, which might be useful for other people.
 Having a (public) repository might help to remove the clutter from my desk. Because I collect a lot of paper, papers, magazines, information and 
@@ -17,3 +17,6 @@ Since I am not a teacher, in the narrow sense. There is no use for me to revise 
 
 All these tutorials, chapters or fascicles are considered pure fiction and only a fool would assume they are correct.
 
+## License
+
+Usage is provided under the [CC BY-SA 3.0 License](https://creativecommons.org/licenses/by-sa/3.0/). See [LICENSE](https://creativecommons.org/licenses/by-sa/3.0/legalcode) for the full details.
