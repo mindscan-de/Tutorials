@@ -1,6 +1,6 @@
 # Tutorials
 
-Autor: Maxim Gansert, 2019, Mindscan
+Author: Maxim Gansert, 2019, Mindscan
 
 This will become a series of single (one-shot) tutorials. I really miss writing down ideas or other stuff, which might be useful for other people.
 Having a (public) repository might help to remove the clutter from my desk. Because I collect a lot of paper, papers, magazines, information and 
