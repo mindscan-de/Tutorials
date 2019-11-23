@@ -11,6 +11,34 @@ The basic building blocks (layers) of the transformer architecture are:
 * Feed-Forward-Networks
 * Normalization
 
+### Embedding the input and output vocabulary
+
+If you are going to implement a machine translation system, you may have two languages involved, the source language (e.g. english) and the destination language (e.g. german).
+Both of them have a differnt vocabulary and also have different embeddings.  
+
+But there are also valid configurations, where the source and the destination language are the same. 
+Like when you want to predict the next words of an english input.
+Then you use the same vocabulary and the same embeddings as your input and output vocabulary.
+
+Thus we can have different embeddings depending on the input and the output languages.
+
+* BPE statistics and BPE vocabulary is used to guide the encoder, which byte/symbol/character pairings to prefer over others. 
+  That will lead to the "same" meaning and deterministic encoding.
+  
+* Given these rules (bpe-statistics, bpe-vocabulary), we now encode the whole corpus and calculate the optimal representation with the Word2Vec algorithm, which optimizes the
+  prediction of the next word or subword. 
+  
+* Embedding gives some very interesting results, the famous example is: The closest vector of ('king' - 'man' + 'woman') is 'queen'. 
+  The vector space contains some very interesting properties, like you can calculate vectors for fast -> faster -> fastest and apply these 
+  vectors for the word slow, then you will calculate the words "slower" and "slowest". 
+  That might help you to understand, that simple vector calculation might work and represent an idea or grammatic rule.
+  
+* for BPE encoded vorabulary this might apply as well, but it depends on the corpus and the number of elements in the bpe vocabulary. 
+  But the calculations might also be more complex, because words are split into subwords.
+  
+* The transformer architecture has been proven to be working even with this fragmented words. Thus it seems to work as well. 
+
+
 
 ## Useful Resources
 
