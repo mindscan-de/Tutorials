@@ -37,7 +37,7 @@ While (compression possible)
     
     Add pair to table and assign it an unused byte
     
-    Replace all such pairs with this unised byze
+    Replace all such pairs with this unused byte
 }
 Write pair table and buffer
 ```
