@@ -50,9 +50,9 @@ at most 128 unused bytes, which each representing a pair of two bytes. The first
 second unused byte was allocated for the second most frequent byte pair, and so on...
 
 20 years later we don't care about unused bytes, but indexes and symbols. And we also don't care about the compression at all. What we like about this 
-algorithm is, its greedyness. It will identify the most frequent pairs of adjacent symbols like _('e','r')_ or _('n','t')_ and so on. Running long 
+algorithm is, its greedyness. It will identify the most frequent pairs of adjacent symbols like _('e','r')_, _('i','c')_ or _('n','t')_ and so on. Running long 
 enough the most frequent adjacent symbols will join into subwords _('i', 'n', 't')_, _('i', 'o', 'n')_ or complete words like _('p', 'u', 'b', 'l', 'i', 'c')_.
-Basically each word, sentence or book can be represented either their original symbol, if it doesn't had any repetitions or an index representing two 
+Basically each word, sentence or book can be represented by either their original symbol(s), if it doesn't had any repetitions or by an index representing two 
 or more adjacent symbols.
 
 ### Speedup for large data
