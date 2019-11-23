@@ -24,7 +24,7 @@ nor variable-length bit packing.
 
 The encoding requires multiple passes and after each pass the encoded data must be reanalyzed. BPE searches the most frequently occuring pair 
 of adjacent bytes. It then replaces all instances of the most frequent pair with a single unused byte and stores the substitution for each
-pass (dictionary). This process can be repeated until there are no more unused bytes available or until no duplicate adjacent bytes can be 
+pass into a dictionary. This process can be repeated until there are no more unused bytes available or until no duplicate adjacent bytes are 
 found, both mean that it is not possble to compress any further.
 
 He described the following compression process with the following pseudocode
@@ -49,9 +49,9 @@ Thus the bytes from 128 to 255 were considered free, when they did not appear in
 at most 128 unused bytes, which each representing a pair of two bytes. The first unused byte was allocated for the most frequent byte pair. The
 second unused byte was allocated for the second most frequent byte pair, and so on...
 
-20 years later we don't care about unused bytes, but indexes and symbols. And we also don't care about compression at all. What we like about this 
+20 years later we don't care about unused bytes, but indexes and symbols. And we also don't care about the compression at all. What we like about this 
 algorithm is, its greedyness. It will identify the most frequent pairs of adjacent symbols like _('e','r')_ or _('n','t')_ and so on. Running long 
-enough the most frequent adjacent symbols will join into subwords _('i', 'n', 't')_, _('i', 'o', 'n')_ or complete words like (_'p', 'u', 'b', 'l', 'i', 'c')_.
+enough the most frequent adjacent symbols will join into subwords _('i', 'n', 't')_, _('i', 'o', 'n')_ or complete words like _('p', 'u', 'b', 'l', 'i', 'c')_.
 Basically each word, sentence or book can be represented either their original symbol, if it doesn't had any repetitions or an index representing two 
 or more adjacent symbols.
 
@@ -74,14 +74,13 @@ the environment I am currently bound to.
 Actually we don't need it to be honest, and it depends on your implementation how easy the decoding actually is. 
 
 
-## BPE - Advantages
+## BPE - Advantages and Disadvantages
 
-BPE has one major advantage it can encode unknown words, which fixed dictionaries can not. Usually unknown words would be
-encoded using a special token "<UNK>" or something alike. 
-
-## BPE - Disadvantages
+* BPE has one major advantage it can encode unknown words, which fixed dictionaries can not. Usually unknown words would be
+  encoded using a special token "<UNK>" or something alike. 
 
 Compared to LZ77, LZ78
+
 * LZ77 and LZ78 assumes that each combination might be a good future candidate, and haven't seen the full stream, it builds the dictionary only 
   based on previously seen input, but LZ77 and LZ78 waste a lot of dictionary indexes at the start, whereas the BPE uses every single one with
   the most frequent first
