@@ -14,13 +14,13 @@ The basic building blocks (layers) of the transformer architecture are:
 ### Embedding the input and output vocabulary
 
 If you are going to implement a machine translation system, you may have two languages involved, the source language (e.g. english) and the destination language (e.g. german).
-Both of them have a differnt vocabulary and also have different embeddings.  
+Both of them have a different vocabulary and also have different embeddings.  
 
 But there are also valid configurations, where the source and the destination language are the same. 
 Like when you want to predict the next words of an english input.
-Then you use the same vocabulary and the same embeddings as your input and output vocabulary.
+Then you use the same vocabulary as your input and output vocabulary and the same embeddings. 
 
-Thus we can have different embeddings depending on the input and the output languages.
+Thus we can have different embeddings depending on the input and the output languages, when they differ and same embeddings, when the input and output language are the same.
 
 * BPE statistics and BPE vocabulary is used to guide the encoder, which byte/symbol/character pairings to prefer over others. 
   That will lead to the "same" meaning and deterministic encoding.
