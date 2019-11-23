@@ -77,7 +77,7 @@ Actually we don't need it to be honest, and it depends on your implementation ho
 ## BPE - Advantages
 
 BPE has one major advantage it can encode unknown words, which fixed dictionaries can not. Usually unknown words would be
-encoded using a special token "<UNK>" or something alike.
+encoded using a special token "<UNK>" or something alike. 
 
 ## BPE - Disadvantages
 
@@ -91,8 +91,16 @@ Compared to LZ77, LZ78
   element will change, and the statistics need to be recalculated. 
 
 * but once you have collected the statistics and your byte pairs, and your source has the same stochastic properties, you can save these
-  pairs and skip the calculation of the statistics, when encoding these. It might be that the compression is not at its maximum
-* if you share the statistics among different encoders and the decoders, then this algorithm provides fast decoding, but slow encoding.
+  pairs and skip the calculation of the statistics, when encoding these. It might be that the compression is not at its absolute maximum,
+  but having a slightly different order (when replacing), doesn't affect the compression size noticably or not even, only differnt indexes 
+  would be assigned.
+  
+* if you share the statistics among different encoders and the decoders, then this algorithm provides fast decoding and comparably slow 
+  encoding.
+  
+* But you can do the heavy preprocessing once for every type of stochastic sources. Like english texts, german texts and other languages as well.
+  So every language will result in a different cooccurence statistics, a different (bpe) vocabulary, and different embeddings. But with enough 
+  data taken, these statistics and embeddings can be reused until there is a requirement for a better encoding and embedding model.
 
 
 ## Useful Resources
