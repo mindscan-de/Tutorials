@@ -1,8 +1,10 @@
 # The Transformer Architecture
 
-## Basics
-
+<p align="center">
 ![The Transformer - model architecture][TransformerModelArchitecture]
+</p>
+
+## Basics
 
 The basic building blocks (layers) of the transformer architecture are:
 
