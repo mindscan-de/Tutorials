@@ -77,15 +77,33 @@ For all odd dimensions calculate:
 
     PE(sin, 2i+1) = cos(pos/( 10000^(2i/d_model)))
 
-Whereas pos is the position of a word in a sentence, and i is the dimension of the vector element.
+Whereas pos is the position of a word in a sentence (vertical axis), and i is the dimension of the vector element (horizontal axis).
 
 ![Visualization of the Positional Encoding][PositionalEncoding]
+
+
+## Masking 
+
+(__TODO__)
+
+## Attention 
+
+(__TODO__)
+
+## Feed Forward Networks
+
+(__TODO__)
+
+## Add and Normalization
+
+(__TODO__)
 
 ## Implementing the Transformer Architecture
 
 *Maybe better to not implement it on my own...* but instead use already implemeted building blocks and examples. Maybe have to rework the training. 
 I still haven't mastered implementing a transformer like architecture on my own, using only the paper.
- 
+
+(__TODO__)
 
 
 ## Useful Resources
@@ -138,4 +156,4 @@ __Academic Reading__
     * https://arxiv.org/abs/1810.04805
     
 [TransformerModelArchitecture]: arxiv1706.03762.the_transformer_model_architecture.figure1.png "The Transformer - model architecture / Source: A. Vaswani et al. 'Attention is all you need'"
-[PositionalEncoding]: positional_encoding.png "Positional Encoding for 512 positions and a dimensional embedding vectors. / Source: self." 
+[PositionalEncoding]: positional_encoding.png "Positional Encoding for 512 positions and 1280 dimensional embedding vectors. / Source: self." 
