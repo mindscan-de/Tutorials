@@ -48,7 +48,7 @@ Thus we can have different embeddings depending on the input and the output lang
 
 ## Positional Encodings
 
-Damit das Modell eine Bedeutung eines Wortes innerhalb eines Satzes/ einer Satzstruktur erlernen kann benötigt es im wesentlichen zwei Dinge
+For a model being able to determine the meaning of a word in a sentence, we must provide two things to the model:  
 
 * What is the meaning of the word?
 * What is the position of the word in the sentence?
