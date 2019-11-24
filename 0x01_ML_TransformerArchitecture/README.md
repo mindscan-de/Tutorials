@@ -13,12 +13,20 @@ The basic building blocks (layers) of the transformer architecture are:
 
 ### Embedding the input and output vocabulary
 
+Embedding is one step when working on natural language processing. 
+A given text is split into tokens and each token will then be feed into a model.
+The model will perform its calculations on float numbers instead of discrete integers.
+Each token is replaced by a vector of float numbers having usually 300 dimensions or more.
+Newer and more precise models have more than 1000 dimensions, for each individual token.
+This replacement (of the index) of the token is called embedding.
+The embeddings are calculated using large corpora of texts and then trained via GlovalVectors (GloVe), FastText or Word2Vec.   
+
 If you are going to implement a machine translation system, you may have two languages involved, the source language (e.g. english) and the destination language (e.g. german).
-Both of them have a different vocabulary and also have different embeddings.  
+Both of them have a different vocabulary and different statistics also have different embeddings.  
 
 But there are also valid configurations, where the source and the destination language are the same. 
 Like when you want to predict the next words of an english input.
-Then you use the same vocabulary as your input and output vocabulary and the same embeddings. 
+Then you use the same vocabulary as your input and output vocabulary and the same embeddings for the vorabulary. 
 
 Thus we can have different embeddings depending on the input and the output languages, when they differ and same embeddings, when the input and output language are the same.
 
@@ -38,6 +46,39 @@ Thus we can have different embeddings depending on the input and the output lang
   
 * The transformer architecture has been proven to be working even with this fragmented words. Thus it seems to work as well. 
 
+## Positional Encodings
+
+Damit das Modell eine Bedeutung eines Wortes innerhalb eines Satzes/ einer Satzstruktur erlernen kann benötigt es im wesentlichen zwei Dinge
+
+* What is the meaning of the word?
+* What is the position of the word in the sentence?
+
+The question for the meaning is already answered by using the embeddings for each word or token. 
+The second question for the position in the sentence is a bit harder, but not too hard.
+We have to add this kind of information to each word in the sentence.
+We do that by simply watermarking the words with a nonrepeating pattern, which the model can also learn.
+
+The sentence may have a different meaning, depending of the position of words in the sentence. 
+The sentence "ich liebe dich!" (i love you!) has a different meaning than the sentence "liebe ich dich?" ((do) i love you?).
+As seen the position of a word is of imortance, even the position of a comma, might change the meaning of a sentence completely, so the model must know at which position a comma was set.   
+
+For an example please refer to the positional encoding paper "Positional Encoding to Control Output Sequence Length". 
+You may also have a look into the ipython notebook in the FluentGenesis-Classifer Project.
+
+For all even dimensions calculate:
+
+	PE(pos, 2i) = sin(pos/( 10000^(2i/d_model)))
+	
+For all odd dimensions calculate:
+
+    PE(sin, 2i+1) = cos(pos/( 10000^(2i/d_model)))
+
+
+## Implementing the Transformer Architecture
+
+*Maybe better to not implement it on my own...* but instead use already implemeted building blocks and examples. Maybe have to rework the training. 
+I still haven't mastered implementing a transformer like architecture on my own, using only the paper.
+ 
 
 
 ## Useful Resources
