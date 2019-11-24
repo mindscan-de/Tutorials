@@ -1,10 +1,6 @@
 # The Transformer Architecture
 
-<p align="center">
-
 ![The Transformer - model architecture][TransformerModelArchitecture]
-
-</p>
 
 ## Basics
 
@@ -61,15 +57,17 @@ For a model being able to determine the meaning of a word in a sentence, we must
 
 The question for the meaning is already answered by using the embeddings for each word or token. 
 The second question for the position in the sentence is a bit harder, but not too hard.
-We have to add this kind of information to each word in the sentence.
+We have to add this kind of information to each word/token in the sentence.
 We do that by simply watermarking the words with a nonrepeating pattern, which the model can also learn.
 
 The sentence may have a different meaning, depending of the position of words in the sentence. 
 The sentence "ich liebe dich!" (i love you!) has a different meaning than the sentence "liebe ich dich?" ((do) i love you?).
 As seen the position of a word is of imortance, even the position of a comma, might change the meaning of a sentence completely, so the model must know at which position a comma was set.   
 
-Please also refer to the papers _"Attention is all you need"_, A. Vaswani et al., section 3.5, (2017) but is encoding also mentioned in _"Positional Encoding to Control Output Sequence Length"_, 2019. 
+If you like you can also refer to the papers _"Attention is all you need"_, A. Vaswani et al., section 3.5, (2017), as well as this one where encoding also mentioned in _"Positional Encoding to Control Output Sequence Length"_, 2019. 
 You may also have a look into the ipython notebook in the FluentGenesis-Classifer Project.
+
+For reasons of simplicity it's enough to stick to the most simple implementation right now. 
 
 For all even dimensions calculate:
 
@@ -138,4 +136,5 @@ __Academic Reading__
   * BERT
     * https://arxiv.org/abs/1810.04805
     
-[TransformerModelArchitecture]: arxiv1706.03762.the_transformer_model_architecture.figure1.png "The Transformer - model architecture / Source: 'Attention is all you need'"
+[TransformerModelArchitecture]: arxiv1706.03762.the_transformer_model_architecture.figure1.png "The Transformer - model architecture / Source: A. Vaswani et al. 'Attention is all you need'"
+[PositionalEncoding]: positional_encoding.png "Positional Encoding for 512 positions and a dimensional embedding vectors. / Source: self." 
