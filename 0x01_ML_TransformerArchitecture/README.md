@@ -1,7 +1,9 @@
 # The Transformer Architecture
 
 <p align="center">
+
 ![The Transformer - model architecture][TransformerModelArchitecture]
+
 </p>
 
 ## Basics
