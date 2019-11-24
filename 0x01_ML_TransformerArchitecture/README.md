@@ -79,6 +79,7 @@ For all odd dimensions calculate:
 
 Whereas pos is the position of a word in a sentence, and i is the dimension of the vector element.
 
+![Visualization of the Positional Encoding][PositionalEncoding]
 
 ## Implementing the Transformer Architecture
 
