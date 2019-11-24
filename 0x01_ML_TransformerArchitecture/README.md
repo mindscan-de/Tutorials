@@ -2,6 +2,8 @@
 
 ## Basics
 
+![The Transformer - model architecture][TransformerModelArchitecture]
+
 The basic building blocks (layers) of the transformer architecture are:
 
 * Embedding the input and output vocabulary
@@ -62,7 +64,7 @@ The sentence may have a different meaning, depending of the position of words in
 The sentence "ich liebe dich!" (i love you!) has a different meaning than the sentence "liebe ich dich?" ((do) i love you?).
 As seen the position of a word is of imortance, even the position of a comma, might change the meaning of a sentence completely, so the model must know at which position a comma was set.   
 
-For an example please refer to the positional encoding paper "Positional Encoding to Control Output Sequence Length". 
+Please also refer to the papers _"Attention is all you need"_, A. Vaswani et al., section 3.5, (2017) but is encoding also mentioned in _"Positional Encoding to Control Output Sequence Length"_, 2019. 
 You may also have a look into the ipython notebook in the FluentGenesis-Classifer Project.
 
 For all even dimensions calculate:
@@ -72,6 +74,8 @@ For all even dimensions calculate:
 For all odd dimensions calculate:
 
     PE(sin, 2i+1) = cos(pos/( 10000^(2i/d_model)))
+
+Whereas pos is the position of a word in a sentence, and i is the dimension of the vector element.
 
 
 ## Implementing the Transformer Architecture
@@ -112,14 +116,14 @@ __Model / Code__
   
 __Academic Reading__
 * https://arxiv.org/abs/1706.03762  [pdf](https://arxiv.org/pdf/1706.03762)
-  * (Attention is all you need) 
+  * _"Attention is all you need"_,  A. Vaswani et al., 2017.
 * https://arxiv.org/abs/1807.03819  [pdf](https://arxiv.org/pdf/1807.03819)
   * Universal Transformers
 * https://arxiv.org/abs/1801.10198
 * https://arxiv.org/abs/1508.07909  
   * BPE / rare word representation
 * https://arxiv.org/abs/1904.07418 [pdf](https://arxiv.org/pdf/1904.07418)
-  * Positional Encoding
+  * _"Positional Encoding to Control Output Sequence Length"_, Sho Takase and Naoaki Okazaki, 2019.
 * https://arxiv.org/abs/1511.01432
   
 * Training
@@ -130,3 +134,4 @@ __Academic Reading__
   * BERT
     * https://arxiv.org/abs/1810.04805
     
+[TransformerModelArchitecture]: arxiv1706.03762.the_transformer_model_architecture.figure1.png "The Transformer - model architecture / Source: 'Attention is all you need'"
