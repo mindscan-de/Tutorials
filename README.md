@@ -7,7 +7,7 @@ Having a (public) repository might help to remove the clutter from my desk. Beca
 other stuff, which I write on paper.
 
 Over the years I collected an awfull lot of paper, which is clogging my home, in an attempt to write books, chapters and fascicles about 
-different tech-topics I find interesting at the time. Actually (I know) it will not lead to a book, but maybe it can give it some more 
+different tech-topics I find interesting at the time. Actually (I know) it will not lead to a book, but maybe I can give it some more 
 structure, if I keep these attempts it in a repository. 
 
 None of these tutorials, chapters or fascicles will be kept up-to-date. They will only be updated as I learn, or as I recall some of my thoughts 
