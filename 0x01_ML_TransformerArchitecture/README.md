@@ -26,7 +26,7 @@ The model will perform its calculations on float numbers instead of discrete int
 Each token is replaced by a vector of float numbers having usually 300 dimensions or more.
 Newer and more precise models have more than 1000 dimensions, for each individual token.
 This replacement (of the index) of the token is called embedding.
-The embeddings are calculated using large corpora of texts and then trained via GlovalVectors (GloVe), FastText or Word2Vec.   
+The embeddings are calculated using large, i mean huge corpora of texts and then trained via GlovalVectors (GloVe), FastText or Word2Vec.   
 
 If you are going to implement a machine translation system, you may have two languages involved, the source language (e.g. english) and the destination language (e.g. german).
 Both of them have a different vocabulary and different statistics also have different embeddings.  
