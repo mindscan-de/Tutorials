@@ -2,7 +2,12 @@
 
 
 Because python for windows uses prebuilt libraries, the setup might seem overly complicated, because of compatibility issues.
-I use Python 3.5 but should consider using 3.6.
+I use Python 3.6.4.
+
+* Install pyton tutorial: 
+  * https://www.pytorials.com/python-download-install-windows/
+* 64-bit version.
+  * https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64.exe
 
 I currently have the following working setup.
 
