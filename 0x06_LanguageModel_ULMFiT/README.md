@@ -6,10 +6,11 @@ This is a write up for the 'Universal LanguageModel Fine-tuning for Text-Classif
   
 This paper discusses the main ideas on NLP transfer learning which were also later used and refined in the BERT(arxiv:1810.04805), GPT and GPT-2 papers. 
 Some other important ideas come from the the ELMo paper(arxiv:1802.05365), which describes some more ideas about contextual representation.
+Transfer Learning became since then the state-of-the-art (SOTA) in natural language processing (NLP).
 
 # ULMFiT
 
-Until this paper came out there was no reliable method of transfer-learning for NLP-tasks. One field of successfully applying transfer learning is
+Until this paper came out there was no reliable method of transfer-learning for NLP-tasks. One field of successfully applying transfer learning before was
 computer vision. Transfer learning has helped to reduce the costs of training the NLP-models by providing a good baseline trained on a large and more
 general corpus and then later on, specializing/tailoring these more general models for your own purposes.   
 
@@ -42,3 +43,16 @@ pre-training helps you to try more experiments. So that you can optimize the pre
 this from scratch will require much more engineering, experiments of different architectures, research and computational power 
 as well (and someone might be luckier than you with his/her approach). Doing AI research is way more expensive, if you only want
 some simple task to be done.
+
+# Model and Training
+
+Phase 1)
+* Pretrain the Language Model - Objective is predicting the next word
+
+Phase 2)
+* Fine-Tune the pretrained Language Model on the new Dataset - Objective is predicting the nex word. Since the new dataset has different statistical characteristics, the fine-tuning step must be performed, to match the target task.
+* This will adapt the pre trained language model into your task oriented language model 
+
+Phase 3)
+* Train the last Layer(s) to the task you want to perform. In ULMFiT train the classifier, by replacing the last (softmax) layer with a layer, which is able to perform the desired target task.
+
