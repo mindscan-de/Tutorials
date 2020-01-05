@@ -1,4 +1,4 @@
-# Setup for Python 3.5, Cuda 10.0 and Tensorflow 1.15
+# Setup for Python 3.6, Cuda 10.0 and Tensorflow 1.14
 
 
 Because python for windows uses prebuilt libraries, the setup might seem overly complicated, because of compatibility issues.
