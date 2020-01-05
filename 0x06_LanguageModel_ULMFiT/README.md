@@ -1,6 +1,6 @@
 # Write up for arxiv:1801.06146 -- ULMFiT-paper
 
-This is a write up for the 'Universal LanguageModel Fine-tuning for Text-Classification' paper of Jeremy Howard and Rebastian Ruder.
+This is a write up for the 'Universal Language Model Fine-tuning for Text Classification' paper of Jeremy Howard and Rebastian Ruder.
 
 # Some context
   
@@ -24,8 +24,9 @@ The proposed network architecture and retraining operation has multiple advantag
 * You can have a general building block, which helps you to work on top of this model, providing your own new Languag tasks
   * By replacing the last layer and gradually retraining the lower layers, you can change the tasks your Model should/can achive
   * Since the model already converged to a general task, it can be easily shifted its attention to a slightly different task
-* The proposed training method also provides a way to avoid catastrophic learning, where the model looses its ability to perform the former task, after being trained for the special task
-  * This loss of ability, usually means the model is trained too much and is overfiting on the new task, and therefore looses the ability to generalize  
+* The proposed training method also provides a way to avoid catastrophic learning, where the model usually looses its ability to perform the former task, after being trained for the special task
+  * This loss of ability, usually means the model is trained too much and is overfiting on the new task, and therefore looses the ability to generalize
+  * The following new training techniques were proposed: discriminative fine-tuning, slanted triangular learning rates and gradual unfreezing
 
 Both the model and the training method showed how to successfully apply pre-training and how to use pre-training models in NLP.
 
@@ -46,13 +47,32 @@ some simple task to be done.
 
 # Model and Training
 
-Phase 1)
-* Pretrain the Language Model - Objective is predicting the next word
+The main idea is to have a static source task and any target task. The goal is to optimize the performancs of the target task.
+Language Modeling is considered the ideal Source Task.
 
-Phase 2)
-* Fine-Tune the pretrained Language Model on the new Dataset - Objective is predicting the nex word. Since the new dataset has different statistical characteristics, the fine-tuning step must be performed, to match the target task.
-* This will adapt the pre trained language model into your task oriented language model 
+The objective was to implement a universal laguage model in the sense that universal means:
+* It works across varaing in document size, number, and label type
+* it uses a single architecture and training process
+* requires no custom feature engineering or preprocessing
+* it doesn't require additional in-domain documents or labels/labeled data
 
-Phase 3)
-* Train the last Layer(s) to the task you want to perform. In ULMFiT train the classifier, by replacing the last (softmax) layer with a layer, which is able to perform the desired target task.
+Stage 1 -- General-domain LM pretraining 
+* Pretrain the Language Model - The objective is predicting the next word.
+* Training is done on a general-domain corpus to capture general features of the languale in differert layers
+* see parameters for the LanguageModel Pretraining: arxiv:1708.02182
+  * Modell is an AWD-LSTM (ASGD Weight-Dropped LSTM) (ASGD - Averaged SGD) (SGD - Statistical gradient descent)
+  * 3 Layer LSTM with 1150 units in the hidden Layer and an embedding dimension of 400
+  * Loss is averaged over all examples and timestamps
+  * embeddings wurden uniform initialisiert zwischen -0.1 und +0.1, alle anderen gewichte wurden initialisiert -1/sqrt(H) und +1/sqrt(H)
+  * H is the size of the Hidden layer
+
+Stage 2 -- Target task LM-fine-tuning
+* Fine-Tune the pretrained Language Model on the new Dataset - Objective is predicting the next word. 
+* Since the new dataset has different statistical characteristics, the fine-tuning step must be performed, to match the target task and characteristics.
+* This will adapt the pre trained language model into your task oriented language model
+* Using of the proposed techniques (same paper) "discriminative fine-tuning" and "slanted triangular learning rates"
+
+Stage 3 -- Target Task X fine-tuning
+* Train the last Layer(s) to the task you want to perform. In ULMFiT train the classifier, by replacing the last (softmax) layer with a layer/model, which is able to perform the desired target task.
+
 
