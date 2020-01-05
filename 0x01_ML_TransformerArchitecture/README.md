@@ -6,17 +6,18 @@
 
 The basic building blocks (layers) of the transformer architecture are:
 
-* Embedding the input and output vocabulary
-* Positional encodings
-* Masking
-* Attention
-* Feed-Forward-Networks
-* Normalization
+* Embedding the input and output vocabulary (red boxes)
+* Positional encodings (white circle)
+* Masking (Orange Boxes)
+* Attention and Multi-Head Attention, Masked-Multi-Head Attention (Orange Boxes)
+* Feed-Forward-Networks (blue boxes)
+* Normalization (yellow boxes)
 
+Before the transformer architecture recurrent neural networks (RNN) and long short-term memory neural networks were the state of the art  
 * in neural machine translation
 * Encoder-decoder architectures are quite successful
 * generate summaries, generate captions
-* usually a RNN / RNN+CNN implementation   
+* usually a RNN / RNN+CNN implementation
 
 ### Embedding the input and output vocabulary
 
